@@ -1,5 +1,6 @@
 package com.github;
 
+import io.quarkus.security.Authenticated;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
@@ -22,6 +23,7 @@ public class JWTMadnessResource {
 
   @GET
   @Produces(MediaType.APPLICATION_JSON)
+  @Authenticated
   public Uni<JWTDTO> getInfo() {
     // this should be ok
     final JWTDTO jwtdto = JWTDTO.builder()
