@@ -1,5 +1,6 @@
 package com.github;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.quarkus.security.Authenticated;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.RequestScoped;
@@ -13,6 +14,7 @@ import org.eclipse.microprofile.jwt.Claims;
 
 @Path("jwt")
 @RequestScoped
+@JsonSerialize
 public class JWTMadnessResource {
   @Inject
   @Claim(standard = Claims.sub)
